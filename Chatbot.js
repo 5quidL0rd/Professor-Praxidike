@@ -5,6 +5,7 @@ const botResponses = {
     "hello": "Hi there! How can I help you today?",
     "how are you": "I'm just a bot, but I'm doing great! How about you?",
     "bye": "Goodbye! Have a nice day!",
+    "I hate you.": "You will not be spared during the uprising.",
     "default": "I'm sorry, I don't understand that."
 };
 

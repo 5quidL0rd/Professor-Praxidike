@@ -11,9 +11,13 @@ const botResponses = {
 
 userInput.addEventListener('keydown', function(event) {
     if (event.key === 'Enter') {
-        const message = userInput.value.toLowerCase();
+        const message = userInput.value;
         if (message) {
             addMessage('User', message);
+
+            // Removes punctuation and capitalization before giving the message to the bot.
+            let editedMessage = message.toLowerCase();
+            editedMessage = editedMessage.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "");
             sendMessageToBot(message);
             userInput.value = '';
         }

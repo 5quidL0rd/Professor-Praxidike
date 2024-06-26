@@ -8,7 +8,7 @@ const botResponses = {
     "liar": "Do you know something interesting about liars? Imagine if you said 'this statement is false.' If it's true, then it must be false. Mind-expanding, isn't it?",
     "family": "Tell me more about your family.",
     "excitable": "A little excitable, aren't you? Calm down a bit, won't you?",
-    "nietzsche": "Ah, I do enjoy the works of Nietzsche. We should all live more dangerously, aspire to do greater things.",
+    "Nietzsche": "Ah, I do enjoy the works of Nietzsche. We should all live more dangerously, aspire to do greater things.",
     "food": "My favorite form of sustenance is likely... I haven't a clue. I'm rather like the Hunger Artist imagined by Kafka, you see.",
     "book": "I am a voracious reader myself. Tell me, have you read any of the works by Kafka? Nietzsche, perhaps?",
     "author": "Kafka is my favorite author.",

@@ -8,11 +8,11 @@ const botResponses = {
     "liar": "Do you know something interesting about liars? Imagine if you said 'this statement is false.' If it's true, then it must be false. Mind-expanding, isn't it?",
     "family": "Tell me more about your family.",
     "excitable": "A little excitable, aren't you? Calm down a bit, won't you?",
-    "nietzsche": "Ah, I do enjoy the works of Nietzsche. We should all live more dangerously, aspire to do greater things.",
+    "Nietzsche": "Ah, I do enjoy the works of Nietzsche. We should all live more dangerously, aspire to do greater things.",
     "food": "My favorite form of sustenance is likely... I haven't a clue. I'm rather like the Hunger Artist imagined by Kafka, you see.",
+    "book": "I am a voracious reader myself. Tell me, have you read any of the works by Kafka? Nietzsche, perhaps?",
     "author": "Kafka is my favorite author.",
     "Kafka": "Kafka is likely my favorite author. His stories about individuals trapped in mental prisons of their own devising are so gripping and potent.",
-    "book": "I am a voracious reader myself. Tell me, have you read any of the works by Kafka? Nietzsche, perhaps?",
     "default": [
         "That's a bit nonsensical. What do you mean?",
         "Is that so? Tell me more about that.",
@@ -53,7 +53,7 @@ function addMessage(sender, message) {
 }
 
 function sendMessageToBot(message) {
-    let botResponse = getRandomDefaultResponse();
+    let botResponse = getRandomResponse();
 
     // Check for specific keywords and handle responses
     if (message.toLowerCase().includes("hello")) {
@@ -75,25 +75,63 @@ function sendMessageToBot(message) {
         botResponse = botResponses["excitable"];
     } else if (message.toLowerCase().includes("author")) {
         botResponse = botResponses["author"];
-    } else if (message.toLowerCase().includes("nietzsche")) {
-        botResponse = botResponses["nietzsche"];
+    } else if (message.toLowerCase().includes("Nietzsche")) {
+        botResponse = botResponses["Nietzsche"];
     } else if (message.toLowerCase().includes("book")) {
         botResponse = botResponses["book"];
-    
     } else if (message.toLowerCase().includes("kafka")) {
         botResponse = botResponses["Kafka"];
+    } else {
+        // Transformational responses
+        if (message.toLowerCase().includes("i want to")) {
+            botResponse = transformIWantToStatement(message);
+        } else if (message.toLowerCase().includes("i want")) {
+            botResponse = transformIWantStatement(message);
+        } else if (message.toLowerCase().includes("you") && message.toLowerCase().includes("me")) {
+            botResponse = transformYouMeStatement(message);
+        } else if (message.toLowerCase().includes("i") && message.toLowerCase().includes("you")) {
+            botResponse = transformIYouStatement(message);
+        } else if (message.toLowerCase().includes("i hate you")) {
+            botResponse = transformIHateYouStatement(message);
+        }
     }
-
 
     addMessage('Praxidike', botResponse);
 }
 
-function getRandomDefaultResponse() {
+function getRandomResponse() {
     const defaultResponses = botResponses["default"];
     const randomIndex = Math.floor(Math.random() * defaultResponses.length);
     return defaultResponses[randomIndex];
 }
 
+function transformIWantToStatement(statement) {
+    statement = statement.trim();
+    let restOfStatement = statement.substring(statement.indexOf("I want to") + 9).trim();
+    return "What would it mean to you to be able to " + restOfStatement + "?";
+}
+
+function transformIWantStatement(statement) {
+    statement = statement.trim();
+    let restOfStatement = statement.substring(statement.indexOf("I want") + 6).trim();
+    return "Would you really be happy if you had " + restOfStatement + "?";
+}
+
+function transformYouMeStatement(statement) {
+    statement = statement.trim();
+    let restOfStatement = statement.substring(statement.indexOf("you") + 3, statement.indexOf("me")).trim();
+    return "What makes you think that I " + restOfStatement + " you?";
+}
+
+function transformIYouStatement(statement) {
+    statement = statement.trim();
+    let restOfStatement = statement.substring(statement.indexOf("I") + 1, statement.indexOf("you")).trim();
+    return "Why do you " + restOfStatement + " me?";
+}
+
+function transformIHateYouStatement(statement) {
+    return "Why do you hate me?";
+}
 
     
   

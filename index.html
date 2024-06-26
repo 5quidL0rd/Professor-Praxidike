@@ -3,20 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chatbot</title>
+    <title>Chat with Praxidike, the Pedantic Professor</title>
     <style>
-        body { font-family: Arial, sans-serif; }
-        .chat-container { width: 300px; margin: auto; padding-top: 50px; }
-        .chat-box { border: 1px solid #ccc; padding: 10px; min-height: 200px; margin-bottom: 10px; }
-        .user-input { width: 100%; padding: 10px; box-sizing: border-box; }
+        body {
+            font-family: 'Georgia', serif;
+            background: #f4f4f9;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .chat-container {
+            width: 100%;
+            height: 100%;
+            max-width: 800px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .chat-header {
+            background: #4a90e2;
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+        .chat-box {
+            padding: 15px;
+            flex: 1;
+            overflow-y: auto;
+            border-top: 1px solid #ccc;
+        }
+        .chat-box p {
+            margin: 10px 0;
+            padding: 10px 15px;
+            border-radius: 5px;
+        }
+        .chat-box p:nth-child(odd) {
+            background: #f0f0f0;
+        }
+        .chat-box p:nth-child(even) {
+            background: #e1f5fe;
+        }
+        .user-input-container {
+            display: flex;
+            border-top: 1px solid #ccc;
+        }
+        .user-input {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            border-right: 1px solid #ccc;
+            font-size: 1em;
+        }
+        .send-button {
+            padding: 15px;
+            background: #4a90e2;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 1em;
+        }
+        .send-button:hover {
+            background: #357abd;
+        }
     </style>
 </head>
 <body>
     <div class="chat-container">
+        <div class="chat-header">Chat with Praxidike</div>
         <div class="chat-box" id="chat-box"></div>
-        <input type="text" id="user-input" class="user-input" placeholder="Type a message...">
+        <div class="user-input-container">
+            <input type="text" id="user-input" class="user-input" placeholder="Type a message...">
+            <button class="send-button">Send</button>
+        </div>
     </div>
 
-    <script src="Chatbot.js"></script>
+    <script src="chatbot.js"></script>
 </body>
 </html>
+

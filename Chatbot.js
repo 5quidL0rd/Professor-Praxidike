@@ -96,6 +96,4 @@ function getRandomDefaultResponse() {
 
 
     
-    addMessage('Praxidike', botResponse);
-}
-
+  

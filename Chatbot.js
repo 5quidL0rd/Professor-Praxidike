@@ -75,7 +75,7 @@ function sendMessageToBot(message) {
         botResponse = botResponses["excitable"];
     } else if (message.toLowerCase().includes("author")) {
         botResponse = botResponses["author"];
-    } else if (message.toLowerCase().includes("Nietzsche")) {
+    } else if (message.toLowerCase().includes("nietzsche")) {
         botResponse = botResponses["Nietzsche"];
     } else if (message.toLowerCase().includes("book")) {
         botResponse = botResponses["book"];
